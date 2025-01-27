@@ -1,14 +1,19 @@
 # Istanbul Technical University - LaTeX Thesis Template (İstanbul Teknik Üniversitesi (İTÜ) - LaTeX Tez Şablonu)
 
-This repo includes the following documents from [ITU Graduate School of Science Engineering & Technology Website](http://www.fbe.itu.edu.tr/en/current-students/masters-degree/documents) in LaTeX format:
+This repo contains updates of the ITU LaTeX Thesis Template from [ITU Graduate School Website](https://lee.itu.edu.tr/ogrenciler/belgeler).
+Volunteer contributors maintain this repository.
+Contributions are welcome!
 
-- [ITU Graduate Thesis Template](https://github.com/ondes/Template-Latex-ITU-Thesis/tree/master/Template-Thesis)
-- [ITU Graduate Thesis Proposal Template](https://github.com/ondes/Template-Latex-ITU-Thesis/tree/master/Template-Thesis-Proposal)
-- [ITU Graduate Thesis Progress Report Template](https://github.com/ondes/Template-Latex-ITU-Thesis/tree/master/Template-Thesis-ProgressReport)
+## Version 2 of the thesis template has introduced new capabilities and improvements.
 
-Also, [Graduation Project Interim Report Template](https://github.com/ondes/Template-Latex-ITU-Thesis/tree/master/Template-GraduationProject-InterimReport) prepared by [Dr. Salih Baris Ozturk](https://github.com/SBarisOzturk) is added.
+1. Natbib citation. (\citet, \citep, \cite)
+2. Authoryear and numbered citation (itubib_name.bst and itubib_num.bst)
+3. DOI in references.
+4. Cleanup of redundant packages and definitions.
+5. Improvements,fixes and cleanup in itutez class file.
+6. Try and see!
 
-## Useful Links & Tools:
+### Useful Links & Tools:
 
 - LaTeX: <https://www.latex-project.org/get/>
 
