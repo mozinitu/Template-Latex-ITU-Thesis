@@ -1,7 +1,9 @@
 # Istanbul Technical University - LaTeX Thesis Template (İstanbul Teknik Üniversitesi (İTÜ) - LaTeX Tez Şablonu)
 
 This repo contains updates of the ITU LaTeX Thesis Template from [ITU Graduate School Website](https://lee.itu.edu.tr/ogrenciler/belgeler).
+
 Volunteer contributors maintain this repository.
+
 Contributions are welcome!
 
 ## Version 2 of the thesis template has introduced new capabilities and improvements.
@@ -50,8 +52,6 @@ It convert equation from screenshots to LaTeX code.
 - Tables Generator: <https://tablesgenerator.com/>
 
 Highly recommended for LaTeX and Markdown.
-
-
 
 ### MATLAB Tools:
 
