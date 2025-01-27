@@ -56,7 +56,7 @@ FUNCTION {use.url} { #1 }
 
 % #0 turns off the display of doi
 % #1 enables
-FUNCTION {use.doi}{ #0 }
+FUNCTION {use.doi}{ #1 }
 
 % #0 turns off the display of eprint
 % #1 enables

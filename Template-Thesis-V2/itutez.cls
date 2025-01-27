@@ -1678,7 +1678,7 @@
     \addtocontents{toc}{\protect\addvspace{-10\p@}}
     \addcontentsline{toc}{chapter}{\th@lotname}%  
     \@mkboth{\MakeUppercase\th@lotname}{\MakeUppercase\th@lotname}%
-    % \vspace*{-18pt}%
+    \vspace*{-18pt}%
     \renewcommand{\ULdepth}{4pt}% 
     \renewcommand{\ULthickness}{1.5pt}% 
     \if@ingilizce
@@ -1686,8 +1686,8 @@
     \else
     ~ \hfill\vspace*{0truecm}{\bf\uline{Sayfa}}
     \fi
-    \vspace*{-6pt}
-    } \\
+    \vspace*{-12pt}} \\
+
     \let\orig@numberline\numberline
     \renewcommand*{\numberline}[1]{%
     \orig@numberline{\bf\tablename\ ##1}\hspace{-8pt}{\bf:}\hspace{4pt}}%
@@ -1708,6 +1708,7 @@
     \addtocontents{toc}{\protect\addvspace{-10\p@}}
     \addcontentsline{toc}{chapter}{\th@lofname}
     \@mkboth{\MakeUppercase\th@lofname}{\MakeUppercase\th@lofname}%
+    \vspace*{-18pt}
     \renewcommand{\ULdepth}{4pt}%		
     \renewcommand{\ULthickness}{1.5pt}% 	
     \if@ingilizce
@@ -1715,8 +1716,7 @@
     \else
       ~\hfill\vspace*{0truecm}{\bf\uline{Sayfa}}
     \fi
-    \vspace*{-6pt}
-    } \\
+    \vspace*{-12pt}} \\
 
     \let\orig@numberline\numberline
     \renewcommand*{\numberline}[1]{%
