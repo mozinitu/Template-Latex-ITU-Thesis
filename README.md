@@ -1,5 +1,7 @@
 # Istanbul Technical University - LaTeX Thesis Template (İstanbul Teknik Üniversitesi (İTÜ) - LaTeX Tez Şablonu)
 
+This repo is unoffical! However,...
+
 This repo contains updates of the ITU LaTeX Thesis Template from [ITU Graduate School Website](https://lee.itu.edu.tr/ogrenciler/belgeler).
 
 Volunteer contributors maintain this repository.
