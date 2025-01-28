@@ -535,8 +535,8 @@
 \gdef\th@bibname{REFERENCES}
 \gdef\th@abbreviationsname{ABBREVIATIONS} 
 \gdef\th@indexname{INDEX}
-\gdef\th@figurename{Figure}
-\gdef\th@tablename{Table}
+\gdef\figurename{Figure}
+\gdef\tablename{Table}
 \gdef\th@partname{PART}
 \gdef\th@glossaryname{DICTIONARY}
 \else
@@ -551,8 +551,8 @@
 \gdef\th@bibname{KAYNAKLAR}
 \gdef\th@abbreviationsname{KISALTMALAR}
 \gdef\th@indexname{DİZİN}
-\gdef\th@figurename{Şekil}
-\gdef\th@tablename{Çizelge}
+\gdef\figurename{Şekil}
+\gdef\tablename{Çizelge}
 \gdef\th@partname{KISIM}
 \gdef\th@glossaryname{TERİMLER SÖZLÜĞÜ}
 \fi
@@ -1874,7 +1874,7 @@
 %==================================== BIBLIOGRAPHY PAGE SETTINGS ======================================
 
 \if@yazaryil
-
+  
 \bibliographystyle{itubib_name}        
 
 \renewenvironment{thebibliography}[1]{%
