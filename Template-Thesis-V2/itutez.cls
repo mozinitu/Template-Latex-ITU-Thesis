@@ -433,35 +433,49 @@
 \gdef\th@yildiz{\hbox{ }\raisebox{1.6pt}{\footnotesize$\bigstar$}\hbox{ }}
 
 %========================= COVER PAGE NAMES ======================================================
+
+\if@doktora
+  \gdef\th@tezseviyesi{DOKTORA TEZİ}
+  \gdef\th@thesislevel{Ph.D. THESIS}
+\fi
+\if@yukseklisans
+  \gdef\th@tezseviyesi{YÜKSEK LİSANS TEZİ}
+  \gdef\th@thesislevel{M.Sc. THESIS}
+\fi
+\if@lisans
+  \gdef\th@tezseviyesi{BİTİRME ÇALIŞMASI}
+  \gdef\th@thesislevel{GRADUATION THESIS}
+\fi
+
 \if@ingilizce
   \if@doktora
-    \gdef\th@tezseviyesi{Ph.D. THESIS}
+    \gdef\th@tezmezun{\th@thesislevel}
     \gdef\th@tezunvan{Ph.D.}
     \gdef\th@tezisim{dissertation}
   \fi
   \if@yukseklisans
-    \gdef\th@tezseviyes{M.Sc. THESIS}
+    \gdef\th@tezmezun{\th@thesislevel}
     \gdef\th@tezunvan{M.Sc.}
     \gdef\th@tezisim{thesis}
   \fi
   \if@lisans
-    \gdef\th@tezseviyesi{GRADUATION THESIS}
+    \gdef\th@tezmezun{\th@thesislevel}
     \gdef\th@tezunvan{B.Sc.}
     \gdef\th@tezisim{graduation project}
   \fi
 \else
   \if@doktora
-  \gdef\th@tezseviyesi{DOKTORA TEZİ}
+  \gdef\th@tezmezun{\th@tezseviyesi}
   \gdef\th@tezunvan{Doktora}
   \gdef\th@tezisim{tezini}
   \fi
   \if@yukseklisans
-  \gdef\th@tezseviyesi{YüKSEK LİSANS TEZİ}
+  \gdef\th@tezmezun{\th@tezseviyesi}
   \gdef\th@tezunvan{Yüksek Lisans}
   \gdef\th@tezisim{tezini}
   \fi
   \if@lisans
-  \gdef\th@tezseviyesi{BİTİRME ÇALIŞMASI}
+  \gdef\th@tezmezun{\th@tezseviyesi}
   \gdef\th@tezunvan{Lisans}
   \gdef\th@tezisim{bitirme çalışmasını}
   \fi
@@ -472,16 +486,16 @@
 
 \if@ingilizce
   \gdef\th@tezunienstitu{\th@uniinstitute}
-  \gdef\th@anabilim{\th@department}
-  \gdef\th@program{\th@programme}
-  \gdef\th@tarihbuyuk{\th@date}
-  \gdef\th@tarihkucuk{\th@datelower}
+  \gdef\th@tezanabilimdali{\th@department}
+  \gdef\th@tezprogram{\th@programme}
+  \gdef\th@teztarih{\th@date}
+  \gdef\th@teztarihkucuk{\th@datelower}
 \else
   \gdef\th@tezunienstitu{\th@unienstitu}
-  \gdef\th@anabilim{\th@anabilimdali}
-  \gdef\th@program{\th@program}
-  \gdef\th@tarihbuyuk{\th@tarih}
-  \gdef\th@tarihkucuk{\th@tarihkucuk}
+  \gdef\th@tezanabilimdali{\th@anabilimdali}
+  \gdef\th@tezprogram{\th@program}
+  \gdef\th@teztarih{\th@tarih}
+  \gdef\th@teztarihkucuk{\th@tarihkucuk}
 \fi
 
 %==================== CHAPTER VE SECTION NAMES ======================
@@ -799,18 +813,18 @@
     \thispagestyle{empty}
     \if@cilt 
     \else
-    \if@doktora
-    \begin{textblock*}{\textwidth}[0,0](40mm,10mm)
-    \pagecolor{black}
-    \color[rgb]{0.5529,0.4549,0.2941}
-    \end{textblock*}
-    \fi
-    \if@yukseklisans
-    \begin{textblock*}{\textwidth}[0,0](40mm,10mm)
-    \pagecolor[rgb]{0,0.1569,0.3373}
-    \color[rgb]{0.5529,0.4549,0.2941}
-    \end{textblock*}
-    \fi
+      \if@doktora
+        \begin{textblock*}{\textwidth}[0,0](40mm,10mm)
+        \pagecolor{black}
+        \color[rgb]{0.5529,0.4549,0.2941}
+        \end{textblock*}
+      \fi
+      \if@yukseklisans
+        \begin{textblock*}{\textwidth}[0,0](40mm,10mm)
+        \pagecolor[rgb]{0,0.1569,0.3373}
+        \color[rgb]{0.5529,0.4549,0.2941}
+        \end{textblock*}
+      \fi
     \fi
 
     \if@lisansustu
@@ -898,7 +912,7 @@
 
 	\begin{textblock*}{\textwidth}[0,0](40mm,150mm)
 	    \centering
-	    \bfseries \th@tezseviyesi  \\
+	    \bfseries \th@tezmezun  \\
 	\end{textblock*}
 
 	\begin{textblock*}{\textwidth}[0,0](40mm,160mm)
@@ -908,17 +922,17 @@
 
 	\begin{textblock*}{\textwidth}[0,0](40mm,200mm)
 	   \centering
-	   \bfseries \th@anabilim\\
+	   \bfseries \th@tezanabilimdali\\
     \end{textblock*}
  
  	\begin{textblock*}{\textwidth}[0,0](40mm,210mm)
  	   \centering
- 	   \bfseries \th@program \\
+ 	   \bfseries \th@tezprogram \\
     \end{textblock*}
 
 	\begin{textblock*}{\textwidth}[0,0](40mm,260mm)
 	   \centering
-     \bfseries \th@tarihbuyuk \\
+     \bfseries \th@teztarih \\
     \end{textblock*}
 
 \vspace*{\fill}
@@ -992,7 +1006,7 @@
 	
 	\begin{textblock*}{\textwidth}[0,0](40mm,150mm)
 		\centering
-		\bfseries \th@tezseviyesi  \\
+		\bfseries \th@thesislevel  \\
 	\end{textblock*}
 	
 	\begin{textblock*}{\textwidth}[0,0](40mm,160mm)
@@ -1311,7 +1325,7 @@
     \sloppy
     \th@forewordstash
     \vspace{30pt} \\
-    \th@tarihkucuk \hfill \th@isimsoyisim \\
+    \th@teztarihkucuk \hfill \th@isimsoyisim \\
     \vspace*{-2.54mm} \hfill \th@unvan \\
 }
 
