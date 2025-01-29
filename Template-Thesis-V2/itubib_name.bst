@@ -1,5 +1,5 @@
 %%
-%% This is file `itubib_name.bst', v2.0 25/01/2025
+%% This is file `itubib_name.bst', v2.0 31/01/2025
 %% A modification of `plainnat.bst' for use with natbib package 
 %% in ITU thesis template
 %% Modified by Mithat Can Özin, ozin@itu.edu.tr
@@ -413,7 +413,7 @@ FUNCTION {format.doi}
 { use.doi
   { doi empty$
       { "" }
-      { new.block "\doi{" doi * "}" * }
+      { "doi\hbox{ }:\hbox{ }\href{https://doi.org/"  doi * "}{" * doi * "}" * }
     if$
   }
   { "" }
@@ -847,7 +847,6 @@ FUNCTION {article}
   format.issn output
   format.doi output
   format.url output
-  new.block
   note output
   format.eprint output
   fin.entry
@@ -886,7 +885,6 @@ FUNCTION {book}
   format.isbn output
   format.doi output
   format.url output
-  new.block
   note output
   format.eprint output
   fin.entry
@@ -906,7 +904,6 @@ FUNCTION {booklet}
   format.isbn output
   format.doi output
   format.url output
-  new.block
   note output
   format.eprint output
   fin.entry
@@ -949,7 +946,6 @@ FUNCTION {inbook}
   format.isbn output
   format.doi output
   format.url output
-  new.block
   note output
   format.eprint output
   fin.entry
@@ -980,7 +976,6 @@ FUNCTION {incollection}
   format.isbn output
   format.doi output
   format.url output
-  new.block
   note output
   format.eprint output
   fin.entry
@@ -1018,7 +1013,6 @@ FUNCTION {inproceedings}
   format.isbn output
   format.doi output
   format.url output
-  new.block
   note output
   format.eprint output
   fin.entry
@@ -1040,7 +1034,6 @@ FUNCTION {manual}
   format.edition output
   format.url output
   format.doi output
-  new.block
   note output
   format.eprint output
   fin.entry
@@ -1058,7 +1051,6 @@ FUNCTION {mastersthesis}
   school output
   address output
   format.url output
-  new.block
   note output
   fin.entry
 }
@@ -1077,7 +1069,6 @@ FUNCTION {misc}
   format.issn output
   format.url output
   format.doi output
-  new.block
   note output
   format.eprint output
   fin.entry
@@ -1097,7 +1088,6 @@ FUNCTION {phdthesis}
   address output
   format.url output
   format.doi output
-  new.block
   note output
   format.eprint output
   fin.entry
@@ -1122,7 +1112,6 @@ FUNCTION {proceedings}
   format.isbn output
   format.doi output
   format.url output
-  new.block
   note output
   format.eprint output
   fin.entry
@@ -1141,7 +1130,6 @@ FUNCTION {techreport}
   address output
   format.url output
   format.doi output
-  new.block
   note output
   format.eprint output
   fin.entry
@@ -1157,7 +1145,6 @@ FUNCTION {unpublished}
   format.title "title" output.check
   format.url output
   format.doi output
-  new.block
   note "note" output.check
   format.eprint output
   fin.entry
