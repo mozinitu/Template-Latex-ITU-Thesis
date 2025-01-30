@@ -543,11 +543,10 @@
 \fi
 \geometry{bindingoffset=0mm,foot=10mm}
 \geometry{textheight=247mm,textwidth=145mm,top=25mm,left=40mm}
-\setlength{\parindent}{0pt} 
-\setlength{\parskip}{6pt} 
 \raggedbottom
 
 %=================================== HEADER SETTINGS ===================================
+
 \pagestyle{fancy}
 \fancyhf{}
 \fancyfoot[C]{\thepage}
@@ -580,6 +579,13 @@
 \setlength\intextsep{12\p@ \@plus .2\p@ \@minus .2\p@}
 
 %========================================= EQUATION SETTINGS =========================================
+
+% % Bolden equation numbers if required
+% \let\theoldequation\theequation
+% \renewcommand{\theequation}{\bfseries\theoldequation}
+
+% \let\oldeqref\eqref
+% \renewcommand{\eqref}[1]{\textbf{\oldeqref{#1}}}
 
 %========================================= ENUMARATE SETTINGS ========================================
 
@@ -618,9 +624,12 @@
 \newcommand{\singlespacing}{\setlength{\baselineskip}{\defbaselineskip}}  %\singlespacing = 1.0
 \newcommand{\oneandonehalf}{\setlength{\baselineskip}{1.45\defbaselineskip}} %\oneandonehalf = 1.5
 
-%============================= TOC, LOT AND LOF RELATED PARAGPRAPH SKIPS ============================
+%============================= PARAGPRAPH SETTINGS ============================ 
 
-\newlength{\oldparskip}     
+\setlength{\parindent}{0pt} 
+\setlength{\parskip}{6pt} 
+
+\newlength{\oldparskip}    
 
 \newlength{\loftparskip} % List of Figure/Table parskip
 \setlength{\loftparskip}{0em}
@@ -758,7 +767,7 @@
     \vskip 12\p@
   \fi}}
 
-% \bottomskip-\oneandhalfspacing{6pt}
+% \bottomskip-\oneandhalfspacing{6pt}-\parskip
 
 \titleformat{\section}[block]{\normalsize\bfseries}{\thesection}{4pt}{}
 \titlespacing*{\section}{0pt}{18pt}{6pt}
@@ -984,7 +993,7 @@
   \else
   \begin{textblock*}{\textwidth}[0,0](40mm,35.5mm)
 		\singlespacing
-    % \renewcommand{\ULdepth}{2.75pt} 	
+    \renewcommand{\ULdepth}{2.75pt} 	
 		\renewcommand{\ULthickness}{1.0pt} 	
 		\centering
 		\uline{\bfseries\th@institutetwo}
