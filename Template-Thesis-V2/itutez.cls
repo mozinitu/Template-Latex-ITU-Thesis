@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{itutez}[2025/01/31]
+\ProvidesClass{itutez}[2025/02/28]
 
 \DeclareOption{openbib}{\PassOptionsToClass{openbib}{report}}
 \DeclareOption{draft}{\PassOptionsToClass{draft}{report}}
@@ -101,6 +101,11 @@
 \RequirePackage[sort&compress]{natbib} 
 \else
 \RequirePackage[numbers,square,sort&compress]{natbib} 
+\fi
+\if@ingilizce
+\usepackage[turkish,main=english,shorthands=off]{babel}
+\else
+\usepackage[english,main=turkish,shorthands=off]{babel}
 \fi
 
 %============================== SETTINGS BETWEEN CONTENTS AND CHAPTERS ==============================
@@ -360,15 +365,15 @@
 
 \if@bilisim
   \gdef\th@enstitu{B\.il\.i\c s\.im Enst\. it\"us\"u}
-  \gdef\th@enstitubir{BİLİŞİM ENSTİTÜSÜ}
+  \gdef\th@enstitubir{B\.IL\.I\c S\.IM ENST\.IT\"US\"U}
   \gdef\th@enstituiki{}	
   \gdef\th@institute{Informatics Institute}
   \gdef\th@instituteone{INFORMATICS INSTITUTE}
   \gdef\th@institutetwo{} 							
 \fi
 \if@lisansustu
-  \gdef\th@enstitu{L\.isansüstü Eğ\.it\.im Enst\.itüsü}
-  \gdef\th@enstitubir{LİSANSÜSTÜ EĞİTİM ENSTİTÜSÜ}
+  \gdef\th@enstitu{L\.isans\"ust\"u Eğ\.it\.im Enst\.it\"us\"u}
+  \gdef\th@enstitubir{L\.ISANS\"UST\"U E\u G\.IT\.IM ENST\.IT\"US\"U}
   \gdef\th@enstituiki{}		
   \gdef\th@institute{Graduate School}
   \gdef\th@instituteone{GRADUATE SCHOOL}
@@ -376,7 +381,7 @@
 \fi
 \if@sosyalbilimler
   \gdef\th@enstitu{Sosyal B\.il\.imler Enst\.it\"us\"u}
-  \gdef\th@enstitubir{SOSYAL BİLİMLER ENSTİTÜSÜ}
+  \gdef\th@enstitubir{SOSYAL B\.IL\.IMLER ENST\.IT\"US\"U}
   \gdef\th@enstituiki{}
   \gdef\th@institute{The Graduate School of Arts and Social Sciences}       
   \gdef\th@instituteone{THE GRADUATE SCHOOL OF ARTS}            		
@@ -384,7 +389,7 @@
 \fi
 \if@enerji
   \gdef\th@enstitu{Enerj\.i Enst\.it\"us\"u}
-  \gdef\th@enstitubir{ENERJİ ENSTİTÜSÜ}
+  \gdef\th@enstitubir{ENERJ\.I ENST\.IT\"US\"U}
   \gdef\th@enstituiki{}		
   \gdef\th@institute{Institute of Energy}
   \gdef\th@instituteone{INSTITUE OF ENERGY}
@@ -392,8 +397,8 @@
 \fi
 \if@avrasya
   \gdef\th@enstitu{Avrasya Yer B\.il\.imler\.i Enst\.it\"us\"u}
-  \gdef\th@enstitubir{AVRASYA YER BİLİMLERİ}
-  \gdef\th@enstituiki{ENSTİTÜSÜ}		
+  \gdef\th@enstitubir{AVRASYA YER B\.IL\.IMLER\.I}
+  \gdef\th@enstituiki{ENST\.IT\"US\"U}		
   \gdef\th@institute{Eurasia Institute of Earth Sciences}
   \gdef\th@instituteone{EUROASIA INSTITUE OF}                   	
   \gdef\th@institutetwo{EARTH SCIENCES} 						
@@ -403,7 +408,7 @@
 
 \if@ucakuzay
   \gdef\th@enstitu{U\c cak ve Uzay B\.imler\.i Fak\"ultes\.i}
-  \gdef\th@enstitubir{UÇAK VE UZAY BİLİMLERİ FAKÜLTESİ}
+  \gdef\th@enstitubir{U\c CAK VE UZAY B\.IL\.IMLER\.I FAK\"ULTES\.I}
   \gdef\th@enstituiki{}
   \gdef\th@institute{Faculty of Aeronautics and Astronautics}		
   \gdef\th@instituteone{FACULTY OF AERONAUTICS AND}
@@ -411,7 +416,7 @@
 \fi
 \if@elektrikelektronik
   \gdef\th@enstitu{Elektr\.ik-Elektron\.ik Fak\"ultes\.i}
-  \gdef\th@enstitubir{ELEKTRİK ELEKTRONİK FAKÜLTESİ}
+  \gdef\th@enstitubir{ELEKTR\.IK ELEKTRON\.IK FAK\"ULTES\.I}
   \gdef\th@enstituiki{}
   \gdef\th@institute{Faculty of Electrical and Electronics}
   \gdef\th@instituteone{FACULTY OF ELECTRICAL AND}
@@ -419,7 +424,7 @@
 \fi
 \if@makina		
   \gdef\th@enstitu{Mak\.ina Fak\"ultes\.i}				
-  \gdef\th@enstitubir{MAKİNA FAKÜLTESİ}
+  \gdef\th@enstitubir{MAK\.INA FAK\"ULTES\.I}
   \gdef\th@enstituiki{}		
   \gdef\th@institute{Faculty of Mechanical Engineering}
   \gdef\th@instituteone{FACULTY OF MECHANICAL}
@@ -428,22 +433,22 @@
 
 %======================================= UNI NAMES =========================================
 
-\gdef\th@universite{İSTANBUL TEKNİK ÜNİVERSİTESİ}
+\gdef\th@universite{\.ISTANBUL TEKN\.IK \"UN\.IVERS\.ITES\.I}
 \gdef\th@university{ISTANBUL TECHNICAL UNIVERSITY}
 \gdef\th@yildiz{\hbox{ }\raisebox{1.6pt}{\footnotesize$\bigstar$}\hbox{ }}
 
 %========================= COVER PAGE NAMES ======================================================
 
 \if@doktora
-  \gdef\th@tezseviyesi{DOKTORA TEZİ}
+  \gdef\th@tezseviyesi{DOKTORA TEZ\.I}
   \gdef\th@thesislevel{Ph.D. THESIS}
 \fi
 \if@yukseklisans
-  \gdef\th@tezseviyesi{YÜKSEK LİSANS TEZİ}
+  \gdef\th@tezseviyesi{Y\"UKSEK L\.ISANS TEZ\.I}
   \gdef\th@thesislevel{M.Sc. THESIS}
 \fi
 \if@lisans
-  \gdef\th@tezseviyesi{BİTİRME ÇALIŞMASI}
+  \gdef\th@tezseviyesi{B\.IT\.IRME \c CALI\c SMASI}
   \gdef\th@thesislevel{GRADUATION THESIS}
 \fi
 
@@ -471,13 +476,13 @@
   \fi
   \if@yukseklisans
   \gdef\th@tezmezun{\th@tezseviyesi}
-  \gdef\th@tezunvan{Yüksek Lisans}
+  \gdef\th@tezunvan{Y\"uksek Lisans}
   \gdef\th@tezisim{tezini}
   \fi
   \if@lisans
   \gdef\th@tezmezun{\th@tezseviyesi}
   \gdef\th@tezunvan{Lisans}
-  \gdef\th@tezisim{bitirme çalışmasını}
+  \gdef\th@tezisim{bitirme çal\i \c smas\i n\i}
   \fi
 \fi
 
@@ -500,39 +505,68 @@
 
 %==================== CHAPTER VE SECTION NAMES ======================
 
-\renewcommand\abstractname{SUMMARY}
-\newcommand\ozetname{ÖZET}
+\newcommand\summaryname{SUMMARY}
+\newcommand\ozetname{\"OZET}
 \if@ingilizce
-\renewcommand\contentsname{TABLE OF CONTENTS}
-\renewcommand\listfigurename{LIST OF FIGURES}
-\renewcommand\listtablename{LIST OF TABLES}
-\renewcommand\bibname{REFERENCES}
-\renewcommand\indexname{INDEX}
-\renewcommand\figurename{Figure}
-\renewcommand\tablename{Table}
-\renewcommand\partname{Part}
-\renewcommand\chaptername{CHAPTER}
-\renewcommand\appendixname{APPENDIX}
 \newcommand\symbolsname{SYMBOLS}
 \newcommand\abbreviationsname{ABBREVIATIONS} 
 \newcommand\resumename{CURRICULUM VITAE}
 \newcommand\forewordname{FOREWORD}
 \else
-\renewcommand\contentsname{İÇİNDEKİLER}
-\renewcommand\listfigurename{ŞEKİL LİSTESİ}
-\renewcommand\listtablename{ÇİZELGE LİSTESİ}
-\renewcommand\bibname{KAYNAKLAR}
-\renewcommand\indexname{DİZİN}
-\renewcommand\figurename{Şekil}
-\renewcommand\tablename{Çizelge}
-\renewcommand\partname{KISIM}
-\renewcommand\chaptername{BÖLÜM}
-\renewcommand\appendixname{EK}
 \newcommand\symbolsname{SEMBOLLER}
 \newcommand\abbreviationsname{KISALTMALAR} 
-\newcommand\resumename{ÖZGEÇMİŞ}
-\newcommand\forewordname{ÖNSÖZ}
+\newcommand\resumename{\"OZGE\c CM\.I\c S}
+\newcommand\forewordname{\"ONS\"OZ}
 \fi
+
+\addto\captionsenglish{%
+  \def\prefacename{PREFACE}%
+  \def\refname{REFERENCES}%
+  \def\abstractname{ABSTRACT}%
+  \def\bibname{REFERENCES}%
+  \def\chaptername{CHAPTER}%
+  \def\appendixname{APPENDIX}%
+  \def\contentsname{TABLE OF CONTENTS}%
+  \def\listfigurename{LIST OF FIGURES}%
+  \def\listtablename{LIST OF TABLES}%
+  \def\indexname{INDEX}%
+  \def\figurename{Figure}%
+  \def\tablename{Table}%
+  \def\partname{PART}%
+  \def\enclname{encl}%
+  \def\ccname{cc}%
+  \def\headtoname{To}%
+  \def\pagename{Page}%
+  \def\seename{see}%
+  \def\alsoname{see also}%
+  \def\proofname{Proof}%
+  \def\glossaryname{GLOSSARY}%
+}%
+
+\addto\captionsturkish{%
+  \def\prefacename{\"ONS\"OZ}%
+  \def\refname{KAYNAKLAR}%
+  \def\abstractname{\"OZET}%
+  \def\bibname{KAYNAKLAR}%
+  \def\chaptername{B\"OL\"UM}%
+  \def\appendixname{EK}%
+  \def\contentsname{\.I\c C\.INDEK\.ILER}%
+  \def\listfigurename{\c SEK\.IL L\.ISTES\.I}%
+  \def\listtablename{\c C\.IZELGE L\.ISTES\.I}%
+  \def\indexname{D\.IZ\.IN}%
+  \def\figurename{\c Sekil}%
+  \def\tablename{\c Cizelge}%
+  \def\partname{KISIM}%
+  \def\enclname{\.Ilişik}%
+  \def\ccname{Di\u ger Al\i c\i lar}%
+  \def\headtoname{Al\i c\i}%
+  \def\pagename{Sayfa}%
+  \def\subjectname{\.Ilgili}%
+  \def\seename{bkz.}%
+  \def\alsoname{ayr\i ca bkz.}%
+  \def\proofname{Kan\i t}%
+  \def\glossaryname{L\"ugat\c ce}%
+}%
 
 %================================ SAYFA YAPISI İLE İLGİLİ TANIMLAMALAR ================================
 
@@ -541,7 +575,7 @@
 \else
 \geometry{a4paper,onecolumn,paperheight=297mm,paperwidth=210mm}
 \fi
-\geometry{bindingoffset=0mm,foot=10mm}
+\geometry{bindingoffset=0mm,foot=12mm}
 \geometry{textheight=247mm,textwidth=145mm,top=25mm,left=40mm}
 \raggedbottom
 
@@ -568,9 +602,9 @@
 \DeclareCaptionLabelFormat{subfigure}{\figurename#1~\thefigure\alph{subfigure}}
 \DeclareCaptionListFormat{itusubfigure}{\begin{tabular}{@{}p{5.3em}@{}r}
   \bfseries\figurename~#1\alph{subfigure} & \bfseries : \\ \end{tabular}}
-\captionsetup[table]{listformat=itutable,labelfont=bf,labelsep=colon,position=top,justification=justified,skip=6pt}
-\captionsetup[figure]{listformat=itufigure,labelfont=bf,labelsep=colon,position=bottom,justification=justified,skip=6pt}
-\subcaptionsetup[figure]{listformat=itusubfigure,labelformat=subfigure,labelfont=bf,font=normalsize,labelsep=colon,position=bottom,justification=justified,skip=6pt}
+\captionsetup[table]{listformat=itutable,labelfont=bf,labelsep=colon,position=top,justification=centerlast,skip=6pt}
+\captionsetup[figure]{listformat=itufigure,labelfont=bf,labelsep=colon,position=bottom,justification=centerlast,skip=6pt}
+\subcaptionsetup[figure]{listformat=itusubfigure,labelformat=subfigure,labelfont=bf,font=normalsize,labelsep=colon,position=bottom,justification=centerlast,skip=6pt}
 
 %========================================= FLOAT SETTINGS =========================================
 
@@ -1138,14 +1172,14 @@
 	
 	\begin{textblock*}{\textwidth}[0,0](40mm,230mm)
 		\centering
-		\bfseries Tez Danışmanı : \th@danisman \\
+		\bfseries Tez Dan\i\c{s}man\i\ : \th@danisman \\
 	\end{textblock*}
 	
 	\begin{textblock*}{\textwidth}[0,0](40mm,235mm)
 		\centering
     \ifx\th@esdanisman\@empty
     \else
-    \bfseries Eş Danışman : \th@esdanisman \\
+    \bfseries E\c{s} Dan\i\c{s}man : \th@esdanisman \\
     \fi
 	\end{textblock*}
 	
@@ -1160,10 +1194,10 @@
 %========================================= APPROVAL (ONAY) PAGE SETTINGS =========================================
 \newcommand{\th@approvalpage}{
 \BolumSagdaKalsin
-\hyphenpenalty=5000
 \singlespacing
 \if@ingilizce 			
 	\begin{textblock*}{\textwidth}[0,0](40mm,50.5mm)
+  \selectlanguage{english}
 	\th@isimsoyisim , a \th@tezunvan\ student of ITU \th@institute\ student ID \th@ogrencino , successfully defended the \th@tezisim\ entitled ``\th@title'', which he/she prepared after fulfilling the requirements specified in the associated legislations, before the jury whose signatures are below.
   \end{textblock*}
  
@@ -1229,25 +1263,26 @@
 \else
 	
   \begin{textblock*}{\textwidth}[0,0](40mm,50.5mm)
-  İTÜ, \th@enstitu'nün \th@ogrencino\ numaralı \th@tezunvan\ öğrencisi \th@isimsoyisim , ilgili yönetmeliklerin belirlediği gerekli tüm şartları yerine getirdikten sonra hazırladığı ``\th@baslik'' başlıklı \th@tezisim\ aşağıdaki imzaları olan jüri önünde başarı ile sunmuştur.
+  \selectlanguage{turkish}
+  \.IT\"U, \th@enstitu'n\"un \th@ogrencino\ numaral\i\ \th@tezunvan\ \"o\u{g}rencisi \th@isimsoyisim , ilgili y\"onetmeliklerin belirledi\u{g}i gerekli t\"um \c{s}artlar\i\ yerine getirdikten sonra haz\i rlad\i\u{g}\i\ ``\th@baslik'' ba\c{s}l\i kl\i\ \th@tezisim\ a\c{s}a\u{g}\i daki imzalar\i\ olan j\"uri \"on\"unde ba\c{s}ar\i\ ile sunmu\c{s}tur.
   \end{textblock*}
 
 \begin{textblock*}{\textwidth}[0,0](40mm,100.5mm)
 	\begin{tabular}{@{}p{33mm} l l}
-		\bf{Tez Danışmanı :}& \bf{\th@danisman} & 
+		\bf{Tez Dan\i\c{s}man\i\ :}& \bf{\th@danisman} & 
 		\hspace*{44pt}\hfill........................ \\
 		& \th@danismanuni  &  \\
     \ifx\th@esdanisman\@empty
     \else
     &  &  \\
     &  &  \\
-    \bf{Eş Danışman :}& \bf{\th@esdanisman} & 
+    \bf{E\c{s} Dan\i\c{s}man :}& \bf{\th@esdanisman} & 
     \hspace*{44pt}\hfill........................ \\
     & \th@esdanismanuni  &  \\
     \fi
 		&  &  \\
 		&  &  \\
-		\bf{Jüri Üyeleri :}& \bf{\th@juribir} & 
+		\bf{J\"uri \"Uyeleri :}& \bf{\th@juribir} & 
 		\hspace*{44pt}\hfill........................ \\
 		& \th@juribiruni  &  \\
 		&  &  \\
@@ -1330,7 +1365,6 @@
     \@mkboth{\MakeUppercase\forewordname}{\MakeUppercase\forewordname}
     \vspace*{6pt}
     \singlespacing
-    \hyphenpenalty=5000
     \sloppy
     \th@forewordstash
     \vspace{30pt} \\
@@ -1490,10 +1524,10 @@
         \end{tabular}
       \end{center}
     \vspace*{-\chaptopspace}
-    \chapter*{\centering\abstractname}
+    \chapter*{\centering\summaryname}
     \phantomsection
-    \addcontentsline{toc}{chapter}{\abstractname}
-    \@mkboth{\MakeUppercase\abstractname}{\MakeUppercase\abstractname}
+    \addcontentsline{toc}{chapter}{\summaryname}
+    \@mkboth{\MakeUppercase\summaryname}{\MakeUppercase\summaryname}
     \singlespacing
     \sloppy
     \th@summarystash   % the actual abstract
@@ -1503,7 +1537,6 @@
 \newcommand{\th@makethesisprologue}{
   \th@coverpage
   \pagenumbering{roman}								
-  \renewcommand*{\thepage}{\small{\roman{page}}} 
   \setcounter{page}{\if@onluarkali 5 \else 3 \fi}
   \singlespacing
 
@@ -1537,7 +1570,6 @@
   \BolumSagdaKalsinNolu
   \oneandonehalf
   \pagenumbering{arabic}
-  \renewcommand*{\thepage}{\small{\arabic{page}}}
 }
 
 %====================================== THE COVER GOES TO THE BEGINNING ==============================
@@ -1550,37 +1582,37 @@
 \if@ingilizce
   \gdef\baglac{and}
   \gdef\etal{et~al.}
+  \gdef\icinde{In}
+  \gdef\olan{of}
   \gdef\duzenciler{(Eds.)}
   \gdef\duzenci{(Ed.)}
-  \gdef\duzenleyen{edited by}
-  \gdef\surum{edition}
-  \gdef\cilt{volume}
-  \gdef\kisasayi{no.}
-  \gdef\sayi{number}
+  \gdef\surum{ed.}
+  \gdef\cilt{Vol.}
+  \gdef\sayi{No.}
   \gdef\ssayfa{pp.}
   \gdef\sayfa{p.}
-  \gdef\bolum{chapter}
+  \gdef\bolum{Chapter}
   \gdef\teknikrapor{Technical Report}
-  \gdef\lisanstezi{B.Sc. Thesis}
-  \gdef\yuksektezi{{\it{M.Sc. Thesis}}}
-  \gdef\doktoratezi{{\it{Ph.D. Dissertation}}}
+  \gdef\lisanstezi{Undergraduate Thesis}
+  \gdef\yuksektezi{Master's Thesis}
+  \gdef\doktoratezi{Doctoral Dissertation}
 \else
   \gdef\baglac{ve}
-  \gdef\etal{ve diğerleri}
-  \gdef\duzenciler{(düzenleyenler)}
-  \gdef\duzenci{(düzenleyen)}
-  \gdef\duzenleyen{düzenleyen}
-  \gdef\surum{sürüm}
-  \gdef\cilt{cilt}
-  \gdef\kisasayi{sayı}
-  \gdef\sayi{sayı}
-  \gdef\ssayfa{s.}
+  \gdef\etal{vd.}
+  \gdef\icinde{}
+  \gdef\olan{}
+  \gdef\duzenciler{(Dzl.)}
+  \gdef\duzenci{(Dzl.)}
+  \gdef\surum{bs.}
+  \gdef\cilt{C}
+  \gdef\sayi{No.}
+  \gdef\ssayfa{ss.}
   \gdef\sayfa{s.}
-  \gdef\bolum{bölüm}
+  \gdef\bolum{B\"ol\"um}
   \gdef\teknikrapor{Teknik Rapor}
   \gdef\lisanstezi{Lisans Tezi}
-  \gdef\yuksektezi{{\it{Yüksek Lisans Tezi}}}
-  \gdef\doktoratezi{{\it{Doktora Tezi}}}
+  \gdef\yuksektezi{Yüksek Lisans Tezi}
+  \gdef\doktoratezi{Doktora Tezi}
 \fi
 
 %==================================== BIBLIOGRAPHY PAGE SETTINGS ======================================
@@ -1600,7 +1632,7 @@
     \addcontentsline{toc}{chapter}{\bibname}
     \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}
     \list{\@biblabel{\@arabic\c@enumiv}}%
-         {\settowidth\labelwidth{\@biblabel{#1}}%
+         {\settowidth\labelwidth{\@biblabel{1}}% #1
           \leftmargin\labelwidth
           \if@yazaryil
           \else

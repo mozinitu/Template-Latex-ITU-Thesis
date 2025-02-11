@@ -1,5 +1,5 @@
 %%
-%% This is file `itubib_num.bst', v2.0 31/01/2025
+%% This is file `itubib_num.bst', v2.1 28/02/2025
 %% A modification of `unsrtnat.bst' for use with natbib package 
 %% in ITU thesis template
 %% Modified by Mithat Can Özin, ozin@itu.edu.tr
@@ -86,9 +86,6 @@ FUNCTION {bbl.editors}
 FUNCTION {bbl.editor}
 { "\duzenci" }
 
-FUNCTION {bbl.edby}
-{ "\duzenleyen" }
-
 FUNCTION {bbl.edition}
 { "\surum" }
 
@@ -96,16 +93,13 @@ FUNCTION {bbl.volume}
 { "\cilt" }
 
 FUNCTION {bbl.of}
-{ "of" }
+{ "\olan" }
 
 FUNCTION {bbl.number}
 { "\sayi" }
 
-FUNCTION {bbl.nr}
-{ "\kisasayi" }
-
 FUNCTION {bbl.in}
-{ "in" }
+{ "\icinde" }
 
 FUNCTION {bbl.pages}
 { "\ssayfa" }
@@ -290,7 +284,7 @@ FUNCTION {format.names}
               if$
               t "others" =
                 { " " * bbl.etal embolden * }
-                { " " * bbl.and embolden * " " * t * }
+                { " " * bbl.and embolden * "\ " * t * }
               if$
             }
           if$
@@ -413,7 +407,7 @@ FUNCTION {format.doi}
 { use.doi
   { doi empty$
       { "" }
-      { "doi\hbox{ }:\hbox{ }\href{https://doi.org/"  doi * "}{" * doi * "}" * }
+      { "doi~:~\href{https://doi.org/"  doi * "}{" * doi * "}" * }
     if$
   }
   { "" }
@@ -445,7 +439,7 @@ FUNCTION {format.full.names}
                 'skip$
               if$
               t "others" =
-                { " " * bbl.etal * " " * }
+                { " " * bbl.etal * }
                 { " " * bbl.and * "\ " * t * }
               if$
             }
@@ -577,10 +571,10 @@ FUNCTION {either.or.check}
 FUNCTION {format.bvolume}
 { volume empty$
     { "" }
-    { "volume" volume tie.or.space.connect
+    { bbl.volume "\ " * volume tie.or.space.connect
       series empty$
         'skip$
-        { " " * bbl.of emphasize * " " * series emphasize * }
+        { " " * bbl.of emphasize * "\ " * series emphasize * }
       if$
       "volume and number" number either.or.check
     }
@@ -592,13 +586,13 @@ FUNCTION {format.number.series}
     { number empty$
         { series field.or.null }
         { output.state mid.sentence =
-            { "number" }
-            { "Number" }
+            { bbl.number "\ " * }
+            { bbl.number "t" change.case$ "\ " * }
           if$
           number tie.or.space.connect
           series empty$
             { "there's a number but no series in " cite$ * warning$ }
-            { " " * bbl.in * " " * series * }
+            { " " * bbl.in * "\ " * series * }
           if$
         }
       if$
@@ -611,8 +605,8 @@ FUNCTION {format.edition}
 { edition empty$
     { "" }
     { output.state mid.sentence =
-        { edition "l" change.case$ " " * bbl.edition * }
-        { edition "t" change.case$ " " * bbl.edition * }
+        { "(" edition "l" change.case$ * ". " * bbl.edition * ")" * }
+        { "(" edition "t" change.case$ * ". " * bbl.edition * ")" * }
       if$
     }
   if$
@@ -644,8 +638,8 @@ FUNCTION {format.pages}
 { pages empty$
     { "" }
     { pages multi.page.check
-        { bbl.pages pages n.dashify tie.or.space.connect }
-        { bbl.page pages tie.or.space.connect }
+        { bbl.pages "\ " * pages n.dashify tie.or.space.connect }
+        { bbl.page "\ " * pages tie.or.space.connect }
       if$
     }
   if$
@@ -720,8 +714,8 @@ FUNCTION {format.in.ed.booktitle}
 { booktitle empty$
     { "" }
     { editor empty$
-        { "In " booktitle * }
-        { "In " format.editors * ", " * booktitle * }
+        { bbl.in "\ " * booktitle * }
+        { bbl.in "\ " * format.editors * ", " * booktitle * }
       if$
     }
   if$
@@ -748,7 +742,7 @@ FUNCTION {format.thesis.type}
 
 FUNCTION {format.tr.number}
 { type empty$
-    { pop$ bbl.techrep }
+    { bbl.techrep }
     'type
   if$
   number empty$
@@ -764,10 +758,10 @@ FUNCTION {format.article.crossref}
           warning$
           ""
         }
-        { "In \emph{" journal * "}" * }
+        { bbl.in * "\ \emph{" journal * "}" * }
       if$
     }
-    { "In " }
+    { bbl.in "\ " * }
   if$
   " \citet{" * crossref * "}" *
 }
@@ -811,13 +805,13 @@ FUNCTION {format.incoll.inproc.crossref}
               crossref * warning$
               ""
             }
-            { "In \emph{" booktitle * "}" * }
+            { bbl.in * "\ \emph{" booktitle * "}" * }
           if$
         }
-        { "In " }
+        { bbl.in "\ " * }
       if$
     }
-    { "In " }
+    { bbl.in "\ " * }
   if$
   " \citet{" * crossref * "}" *
 }
@@ -1047,7 +1041,7 @@ FUNCTION {mastersthesis}
   format.date "year" output.check
   new.block
   format.title "title" output.check
-  bbl.mthesis format.thesis.type output.nonnull
+  "(" bbl.mthesis * ")" * format.thesis.type output.nonnull
   school output
   address output
   format.url output
@@ -1083,7 +1077,7 @@ FUNCTION {phdthesis}
   format.date "year" output.check
   new.block
   format.btitle "title" output.check
-  bbl.phdthesis emphasize format.thesis.type output.nonnull
+  "(" bbl.phdthesis * ")" * format.thesis.type output.nonnull
   school output
   address output
   format.url output
@@ -1125,7 +1119,7 @@ FUNCTION {techreport}
   format.date "year" output.check
   new.block
   format.title "title" output.check
-  format.tr.number embolden output.nonnull
+  "(" format.tr.number * ")" * output.nonnull
   institution "institution" output.check
   address output
   format.url output
@@ -1249,7 +1243,7 @@ FUNCTION {format.lab.names}
     { #2 <
         'skip$
         { s #2 "{ff }{vv }{ll}{ jj}" format.name$ "others" =
-            { " " * bbl.etal * " " * }
+            { " " * bbl.etal * }
             { " " * bbl.and * "\ " * s #2 "{vv~}{ll}" format.name$ * }
           if$
         }
